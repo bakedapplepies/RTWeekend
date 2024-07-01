@@ -5,7 +5,7 @@
             "type": "lldb",
             "request": "launch",
             "name": "Debug Application",
-            "program": "${workspaceFolder}/build/Debug/src/Honeycrisp.exe",
+            "program": "${workspaceFolder}/build/Debug/src/RTWeekend.exe",
             "args": [],
             "cwd": "${workspaceFolder}/build/Debug/src",
         }

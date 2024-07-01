@@ -2,8 +2,10 @@ cmake_minimum_required(VERSION 3.26.0)
 project(${CMAKE_PROJECT_NAME} CXX C)
 
 set(SOURCE_FILES
-    main.cpp
-    Renderer.cpp
+    ${CMAKE_SOURCE_DIR}/src/main.cpp
+    ${CMAKE_SOURCE_DIR}/src/Application.cpp
+    ${CMAKE_SOURCE_DIR}/src/Renderer.cpp
+    ${CMAKE_SOURCE_DIR}/src/Camera.cpp
 )
 
 set(INCLUDE_DIRECTORIES
