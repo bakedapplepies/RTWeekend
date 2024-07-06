@@ -10,6 +10,8 @@ private:
     std::unique_ptr<Renderer> m_renderer;
     Camera m_camera;
 
+    uint32_t m_samplesPerPixel;
+
 public:
     Application();
     void Run();

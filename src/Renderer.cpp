@@ -12,7 +12,26 @@ Renderer::Renderer(uint32_t image_width, uint32_t image_height) :
 
 void Renderer::DrawPixel(const Color& color)
 {
-    m_outputStream << fmt::format("{} {} {}\n", color.r, color.g, color.b);
+    static const Interval intensity(0.0f, 1.0f);
+    m_outputStream << fmt::format("{} {} {}\n",
+        static_cast<uint32_t>(intensity.Clamp(color.r) * 255.999f),
+        static_cast<uint32_t>(intensity.Clamp(color.g) * 255.999f),
+        static_cast<uint32_t>(intensity.Clamp(color.b) * 255.999f)
+    );
+}
+
+Color Renderer::GetRayColor(const Ray& ray, const Scene& scene) const
+{
+    HitRecord record;
+    if (scene.HasHit(ray, Interval(0.0f, FLOAT_INF), record))
+    {
+        Vec3 normal = record.normal;
+        return 0.5f * Color(normal.x + 1.0f, normal.y + 1.0f, normal.z + 1.0f);
+    }
+
+    Vec3 unitDirection = glm::normalize(ray.GetDirection());
+    float a = 0.5f * (unitDirection.y + 1.0f);  // map [-1.0 - 1.0] to [0.0 - 1.0]
+    return (1.0f - a) * Color(1.0f) + a * Color(0.5f, 0.7f, 1.0f);  // lerp
 }
 
 Renderer::~Renderer()

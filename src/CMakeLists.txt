@@ -6,6 +6,11 @@ set(SOURCE_FILES
     ${CMAKE_SOURCE_DIR}/src/Application.cpp
     ${CMAKE_SOURCE_DIR}/src/Renderer.cpp
     ${CMAKE_SOURCE_DIR}/src/Camera.cpp
+    ${CMAKE_SOURCE_DIR}/src/Ray.cpp
+    ${CMAKE_SOURCE_DIR}/src/Scene.cpp
+    ${CMAKE_SOURCE_DIR}/src/Interval.cpp
+    ${CMAKE_SOURCE_DIR}/src/Random.cpp
+    ${CMAKE_SOURCE_DIR}/src/shapes/Sphere.cpp
 )
 
 set(INCLUDE_DIRECTORIES

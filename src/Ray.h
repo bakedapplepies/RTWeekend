@@ -7,9 +7,12 @@ class Ray
 {
 private:
     Point3 m_origin;
-    Vec3 m_dir;
+    Vec3 m_direction;
 
 public:
-    Ray() = default;
-    Point3 at(double t) const;
+    Ray(const Point3& origin, const Vec3& direction);
+    Point3 At(float t) const;
+
+    const Point3& GetOrigin() const;
+    const Vec3& GetDirection() const;
 };
